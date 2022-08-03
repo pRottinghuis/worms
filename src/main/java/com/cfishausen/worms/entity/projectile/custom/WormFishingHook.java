@@ -558,6 +558,5 @@ public class WormFishingHook extends FishingHook {
         INSIDE_WATER,
         INVALID;
     }
-    //TODO override tick and fix line 136 from FishingHook.java and retrive then remove accesstransformer from should stop fishing.
-    // Make local shouldStopFishing. Have my catching fish
+
 }
