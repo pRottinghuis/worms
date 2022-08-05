@@ -1,6 +1,5 @@
-
 {
-  "parent": "worms:item/worm_fishing_rod",
+  "parent": "item/handheld_rod",
   "textures": {
     "layer0": "worms:item/worm_fishing_rod_cast"
   }

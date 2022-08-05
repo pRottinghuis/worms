@@ -1,6 +1,7 @@
 package com.cfishausen.worms;
 
 import com.cfishausen.worms.entity.WEntityTypes;
+import com.cfishausen.worms.entity.client.ClientHandler;
 import com.cfishausen.worms.entity.client.WormBobberRenderer;
 import com.cfishausen.worms.entity.client.WormRenderer;
 import com.cfishausen.worms.item.WItems;
@@ -34,6 +35,7 @@ public class Worms {
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
+        modEventBus.addListener(this::setupClient);
 
         WItems.register(modEventBus);
         WEntityTypes.register(modEventBus);
@@ -69,5 +71,9 @@ public class Worms {
             EntityRenderers.register(WEntityTypes.WORM.get(), WormRenderer::new);
             //EntityRenderers.register(WEntityTypes.WORM_FISHING_BOBBER.get(), WormBobberRenderer::new);
         }
+    }
+
+    private void setupClient(FMLClientSetupEvent event) {
+        event.enqueueWork(ClientHandler::setupClient);
     }
 }
