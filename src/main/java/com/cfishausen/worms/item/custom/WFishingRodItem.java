@@ -1,17 +1,11 @@
 package com.cfishausen.worms.item.custom;
 
-import com.cfishausen.worms.entity.projectile.custom.WormFishingHook;
-import com.google.common.collect.ImmutableMultimap;
-import com.google.common.collect.Multimap;
+import com.cfishausen.worms.entity.projectile.custom.WFishingBobberEntity;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.ai.attributes.Attribute;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.FishingRodItem;
 import net.minecraft.world.item.ItemStack;
@@ -25,6 +19,9 @@ public class WFishingRodItem extends FishingRodItem {
         super(p_41285_);
     }
 
+    /**
+     * Vanilla code with change to use mod's bobber entity.
+     */
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
@@ -43,7 +40,7 @@ public class WFishingRodItem extends FishingRodItem {
             if (!level.isClientSide) {
                 int k = EnchantmentHelper.getFishingSpeedBonus(itemstack);
                 int j = EnchantmentHelper.getFishingLuckBonus(itemstack);
-                level.addFreshEntity(new WormFishingHook(player, level, j, k)); // Add custom fishing hook
+                level.addFreshEntity(new WFishingBobberEntity(player, level, j, k)); // Change
             }
 
             player.awardStat(Stats.ITEM_USED.get(this));

@@ -2,6 +2,6 @@
 {
   "parent": "worms:item/worm_fishing_rod",
   "textures": {
-    "layer0": "worms:item/fishing_rod_cast"
+    "layer0": "worms:item/worm_fishing_rod_cast"
   }
 }

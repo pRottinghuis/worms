@@ -1,7 +1,7 @@
 package com.cfishausen.worms;
 
 import com.cfishausen.worms.entity.WEntityTypes;
-import com.cfishausen.worms.entity.client.WormFishingHookRenderer;
+import com.cfishausen.worms.entity.client.WormBobberRenderer;
 import com.cfishausen.worms.entity.client.WormRenderer;
 import com.cfishausen.worms.item.WItems;
 import com.mojang.logging.LogUtils;
@@ -67,7 +67,7 @@ public class Worms {
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
 
             EntityRenderers.register(WEntityTypes.WORM.get(), WormRenderer::new);
-            EntityRenderers.register(WEntityTypes.WORM_FISHING_BOBBER.get(), WormFishingHookRenderer::new);
+            //EntityRenderers.register(WEntityTypes.WORM_FISHING_BOBBER.get(), WormBobberRenderer::new);
         }
     }
 }
