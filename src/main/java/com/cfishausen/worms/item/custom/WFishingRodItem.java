@@ -7,9 +7,7 @@ import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.FishingRodItem;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Vanishable;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
@@ -36,6 +34,11 @@ public class WFishingRodItem extends FishingRodItem implements Vanishable {
 
             level.playSound((Player)null, player.getX(), player.getY(), player.getZ(), SoundEvents.FISHING_BOBBER_RETRIEVE, SoundSource.NEUTRAL, 1.0F, 0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F));
             player.gameEvent(GameEvent.ITEM_INTERACT_FINISH);
+            if(player.level.getRandom().nextInt(3) == 1) {
+                ItemStack baseRod = new ItemStack(Items.FISHING_ROD);
+                baseRod.setDamageValue(itemstack.getMaxDamage() - (itemstack.getMaxDamage() - itemstack.getDamageValue()));
+                player.setItemInHand(hand, baseRod); //TODO Make sure enchantment and name tag carries over.
+            }
         } else {
             level.playSound((Player)null, player.getX(), player.getY(), player.getZ(), SoundEvents.FISHING_BOBBER_THROW, SoundSource.NEUTRAL, 0.5F, 0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F));
             if (!level.isClientSide) {
