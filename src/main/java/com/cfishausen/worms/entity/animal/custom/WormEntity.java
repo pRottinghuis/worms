@@ -9,6 +9,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -60,6 +61,15 @@ public class WormEntity extends Animal implements IAnimatable {
     @Override
     public boolean isFood(ItemStack itemStack) {
         return itemStack.getItem() == Items.BONE_MEAL;
+    }
+
+    @Override
+    public void aiStep() {
+        if(this.isSunBurnTick()) {
+            this.hurt(DamageSource.DRY_OUT, 0.24f);
+        }
+
+        super.aiStep();
     }
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
