@@ -65,7 +65,7 @@ public class WormEntity extends Animal implements IAnimatable {
 
     @Override
     public void aiStep() {
-        if(this.isSunBurnTick()) {
+        if(this.isSunBurnTick() && !this.isInWater()) {
             this.hurt(DamageSource.DRY_OUT, 0.24f);
         }
 
