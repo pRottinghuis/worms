@@ -36,15 +36,14 @@ public class WormEntity extends Animal implements IAnimatable {
 
     public static AttributeSupplier setAttributes() {
         return Animal.createLivingAttributes()
-                .add(Attributes.MAX_HEALTH, 20.0D)
+                .add(Attributes.MAX_HEALTH, 5.0D)
                 .add(Attributes.FOLLOW_RANGE, 48.0D)
                 .add(Attributes.ATTACK_DAMAGE, 3.0f)
                 .add(Attributes.ATTACK_SPEED, 2.0f)
-                .add(Attributes.MOVEMENT_SPEED, 0.3f).build();
+                .add(Attributes.MOVEMENT_SPEED, 0.2f).build();
     }
 
     protected void registerGoals() {
-        this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(1, new PanicGoal(this, 1.25D));
         this.goalSelector.addGoal(2, new BreedGoal(this, 1.0D));
         this.goalSelector.addGoal(3, new RandomLookAroundGoal(this));
