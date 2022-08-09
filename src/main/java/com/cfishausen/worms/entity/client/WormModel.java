@@ -7,17 +7,17 @@ import software.bernie.geckolib3.model.AnimatedGeoModel;
 
 public class WormModel extends AnimatedGeoModel<WormEntity> {
     @Override
-    public ResourceLocation getModelResource(WormEntity object) {
+    public ResourceLocation getModelLocation(WormEntity object) {
         return new ResourceLocation(Worms.MODID, "geo/worm.geo.json");
     }
 
     @Override
-    public ResourceLocation getTextureResource(WormEntity object) {
+    public ResourceLocation getTextureLocation(WormEntity object) {
         return new ResourceLocation(Worms.MODID, "textures/entity/worm/worm.png");
     }
 
     @Override
-    public ResourceLocation getAnimationResource(WormEntity animatable) {
+    public ResourceLocation getAnimationFileLocation(WormEntity animatable) {
         return new ResourceLocation(Worms.MODID, "animations/worm.animation.json");
     }
 }

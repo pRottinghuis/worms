@@ -33,7 +33,7 @@ public class WFishingRodItem extends FishingRodItem implements Vanishable {
             }
 
             level.playSound((Player)null, player.getX(), player.getY(), player.getZ(), SoundEvents.FISHING_BOBBER_RETRIEVE, SoundSource.NEUTRAL, 1.0F, 0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F));
-            player.gameEvent(GameEvent.ITEM_INTERACT_FINISH);
+            player.gameEvent(GameEvent.FISHING_ROD_REEL_IN);
         } else {
             level.playSound((Player)null, player.getX(), player.getY(), player.getZ(), SoundEvents.FISHING_BOBBER_THROW, SoundSource.NEUTRAL, 0.5F, 0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F));
             if (!level.isClientSide) {
@@ -43,7 +43,7 @@ public class WFishingRodItem extends FishingRodItem implements Vanishable {
             }
 
             player.awardStat(Stats.ITEM_USED.get(this));
-            player.gameEvent(GameEvent.ITEM_INTERACT_START);
+            player.gameEvent(GameEvent.FISHING_ROD_CAST);
         }
 
         return InteractionResultHolder.sidedSuccess(itemstack, level.isClientSide());

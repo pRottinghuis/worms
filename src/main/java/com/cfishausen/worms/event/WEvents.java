@@ -27,7 +27,7 @@ public class WEvents {
         if (!event.getPlayer().level.isClientSide()) {
             BlockState state = event.getState();
             ServerLevel level = (ServerLevel) event.getPlayer().level;
-            if (state.is(Blocks.MUD) || state.is(Blocks.GRASS_BLOCK) || state.is(Blocks.DIRT_PATH) || state.is(Blocks.DIRT) || state.is(Blocks.PODZOL)) {
+            if (state.is(Blocks.GRASS_BLOCK) || state.is(Blocks.DIRT_PATH) || state.is(Blocks.DIRT) || state.is(Blocks.PODZOL)) {
                 if (level.getRandom().nextInt(100) == 1) {
                     BlockPos pos = event.getPos();
                     ServerLevel serverLevel = (ServerLevel) event.getPlayer().getLevel();
@@ -41,7 +41,7 @@ public class WEvents {
                     spawnWorm(serverLevel, pos);
                 }
             }
-            if (state.is(Blocks.FARMLAND) || state.is(Blocks.MUDDY_MANGROVE_ROOTS)) {
+            if (state.is(Blocks.FARMLAND)) {
                 if (level.getRandom().nextInt(20) == 1) {
                     BlockPos pos = event.getPos();
                     ServerLevel serverLevel = (ServerLevel) event.getPlayer().getLevel();
