@@ -13,7 +13,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class WEntityTypes {
 
-    public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITIES, Worms.MODID);
+    public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, Worms.MODID);
 
     public static final RegistryObject<EntityType<WormEntity>> WORM =
             ENTITY_TYPES.register("worm",
